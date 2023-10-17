@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import ErrorBoundary from './components/errorBoundary/errorBoundary';
-import { fetchRedditPosts } from './utils/api';
+import { fetchRedditPosts, fetchSubreddits } from './utils/api';
 import PostListItem  from './components/postList/potsListItem';
 
 import '../src/App.css';
 
 function App() {
   const [posts, setPosts] = useState([]);
+  const [subreddits, setSubreddits] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -26,7 +27,20 @@ function App() {
     fetchData();
   }, []);
   
-  
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const subredditData = await fetchSubreddits();
+        setSubreddits(subredditData);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, []);
 
   return (
     <ErrorBoundary>
@@ -57,8 +71,11 @@ function App() {
         <aside className='sidebar'>
           <h2>Subreddits</h2>
           <ul>
-            { /* Display important subreddits from Reddit API*/}
-            { /* You can map through the subreddits and render list items */}
+            {subreddits.map((subreddit) => (
+              <li key={subreddit.data.display_name}>
+                {subreddit.data.display_name}
+              </li>
+            ))}
           </ul>
         </aside>
       </div>

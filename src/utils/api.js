@@ -29,3 +29,18 @@ export const searchRedditPosts = async (query) => {
     throw error;
   }
 };
+
+export const fetchSubreddits = async () => {
+  try {
+    const response = await fetch('https://www.reddit.com/subreddits/popular.json');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+    return data.data.children;
+  } catch (error) {
+    console.error('Error fetching subreddits:', error);
+    throw error;
+  }
+};
