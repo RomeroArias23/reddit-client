@@ -49,35 +49,42 @@ function App() {
           <div className='logo'>
             <h1>Mini reddit</h1>
           </div>
-          <form>
-            <input type='text' placeholder='Search' />
-            <button type='submit'>Search</button>
-          </form>
+
+          <div className='container'>
+            <form className='search-bar'>
+              <input type='text' placeholder='Search' />
+              <button type='submit'><img src={require('./resources/lupa.png')}></img></button>
+            </form>
+          </div>
+
         </header>
         
-        <main className='main'>
-          {loading ? (
-            <div>Loading...</div>
-          ) : error ? (
-            <div>Error: {error.message}</div>
-          ) : (
-            // Display Reddit posts by mapping through the 'posts' array
-            posts.map((post) => (
-              <PostListItem key={post.data.id} post={post.data} />
-            ))
-          )}  
-        </main>
+        <div className='container'>
+          <main className='main'>
+            {loading ? (
+              <div>Loading...</div>
+            ) : error ? (
+              <div>Error: {error.message}</div>
+            ) : (
+              // Display Reddit posts by mapping through the 'posts' array
+              posts.map((post) => (
+                <PostListItem key={post.data.id} post={post.data} />
+              ))
+            )}  
+          </main>
 
-        <aside className='sidebar'>
-          <h2>Subreddits</h2>
-          <ul>
-            {subreddits.map((subreddit) => (
-              <li key={subreddit.data.display_name}>
-                {subreddit.data.display_name}
-              </li>
-            ))}
-          </ul>
-        </aside>
+          <aside className='sidebar'>
+            <h2>Subreddits</h2>
+            <ul>
+              {subreddits.map((subreddit) => (
+                <li key={subreddit.data.display_name}>
+                  {subreddit.data.display_name}
+                </li>
+              ))}
+            </ul>
+          </aside>
+        </div>
+        
       </div>
     </ErrorBoundary>
   );  

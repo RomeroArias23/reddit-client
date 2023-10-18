@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  background-color: #0000;
   color: #F4F4F4;
 }
 
@@ -36,6 +37,45 @@ header:before {
   text-transform: uppercase;
 }
 
+.search-bar {
+  width: 100%;
+  max-width: 700px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 60px;
+  padding: 10px 20px;
+  backdrop-filter: blur(4px) saturate(180%);
+}
+
+.search-bar input {
+  background: transparent;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 24px 20px;
+  font-size: 20px;
+  color: #cac7ff; 
+}
+
+::placeholder {
+  color: #cac7ff;
+}
+
+.search-bar button img {
+  width: 25px;
+}
+
+.search-bar button {
+  border: 0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background: #E0E111;
+  cursor: pointer;
+}
+
 .logo {
   background-image: linear-gradient(to right, #018FA6, #E5E900);
 }
@@ -45,13 +85,11 @@ header:before {
 }
 
 .container {
-  display: flex;
   justify-content: space-between;
 }
 
 main {
-  flex: 2;
-  width: fit-content;
+  width: max-content;
 }
 
 .post-list-item {
@@ -81,12 +119,11 @@ main {
 
 .sidebar {
   position: fixed;
-  flex: 1;
-  top: 147px;
+  top: 158px;
   right: 0;
   height: 1000px;
-  width: fit-content;
-  background-image: linear-gradient(to right, #0000, #494741);
+  width: auto;
+  background-image: linear-gradient(to right, #494741, #0000);
 }
 
 code {

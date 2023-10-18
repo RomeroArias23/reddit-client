@@ -20,8 +20,9 @@ const SearchBar = ({ searchTerm, setSearchTerm }) => {
                 placeholder='Search...'
                 value={inputValue}
                 onChange={handleInputChange}
+                name='q'
             />
-            <button onClick={handleSearch}>Search</button>
+            <button onClick={handleSearch}><img src="../src/logo.svg"></img></button>
         </div>
     );
 };
