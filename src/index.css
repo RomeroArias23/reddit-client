@@ -126,6 +126,15 @@ main {
   background-image: linear-gradient(to right, #494741, #0000);
 }
 
+.sidebar ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+.sidebar a {
+  font-style: normal;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -56,7 +56,6 @@ function App() {
               <button type='submit'><img src={require('./resources/lupa.png')}></img></button>
             </form>
           </div>
-
         </header>
         
         <div className='container'>
@@ -78,7 +77,13 @@ function App() {
             <ul>
               {subreddits.map((subreddit) => (
                 <li key={subreddit.data.display_name}>
-                  {subreddit.data.display_name}
+                  <a
+                    href={`https://www.reddit.com/r/${subreddit.data.display_name}`}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    {subreddit.data.display_name}
+                  </a>
                 </li>
               ))}
             </ul>

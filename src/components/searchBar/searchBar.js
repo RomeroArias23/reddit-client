@@ -22,7 +22,7 @@ const SearchBar = ({ searchTerm, setSearchTerm }) => {
                 onChange={handleInputChange}
                 name='q'
             />
-            <button onClick={handleSearch}><img src="../src/logo.svg"></img></button>
+            <button onClick={handleSearch}><img src={require('')}></img></button>
         </div>
     );
 };
